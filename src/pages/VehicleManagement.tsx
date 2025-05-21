@@ -85,10 +85,9 @@ const VehicleManagement: React.FC = () => {
       setShowTicket(true);
       resetForm();
       fetchVehicles();
-      fetchParkings(); // Refresh parking data to update available spaces
-    } catch (error) {
-      console.error('Error recording vehicle entry:', error);
-      toast.error('Failed to record vehicle entry');
+      fetchParkings(); 
+    } catch (error: any) {      
+      toast.error(error.response.data.message);
     }
   };
 
